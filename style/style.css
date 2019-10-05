@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300|Notable|Playfair+Display&display=swap');
+
+:root{
+	/*FONTS*/
+	--bigF: 'Notable', sans-serif;
+	--secondF: 'Montserrat', sans-serif;
+	--thirdF: 'Playfair Display', serif;
+	/*COLORS*/
+	--red: #EF5455;
+	--yellow: #FAD744;
+	--blue: #2B3252;
+}
+
+nav ul li:nth-child(2){
+	font-family:var(--bigF);
+}
+
+
