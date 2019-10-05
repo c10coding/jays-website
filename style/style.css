@@ -11,8 +11,55 @@
 	--blue: #2B3252;
 }
 
-nav ul li:nth-child(2){
-	font-family:var(--bigF);
+body{
+	margin:0;
+	padding:0;
 }
+/*------- NAV STUFF ------ */
+nav .col-md-12{
+	background-color: var(--red);
+}
+	nav ul{
+		text-align: center;
+		margin-left: 40px;
+		margin-right:40px;
+	}
+		nav ul li{
+			height:70px;
+			line-height: 65px;
+		}
+		nav ul li:nth-child(1){
+			color:var(--blue);
+			float: left;
+			font-size: 155%;
+			transition: .5s;
+		}
+		nav ul li:nth-child(2){
+			font-family:var(--bigF);
+			text-align:center;
+			font-size: 140%;
+		}
+		nav ul li:nth-child(3){
+			font-family:var(--secondF);
+			text-transform: uppercase;
+			color:var(--blue);
+			float:right;
+		}
+		#browseLink{
+			text-decoration: none;
+			color:var(--yellow);
+			transition: .5s;
+		}
+			#browseLink:hover{
+				color:var(--white);
+				transition: .5s;
+				cursor: pointer;
+				opacity: .5;
+			}
+		nav ul li:nth-child(1):hover{
+			color:var(--white);
+			transition:.5s;
+			cursor: pointer;
+		}
 
 

@@ -17,7 +17,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	<!-- NAVIGATION -->
+	<!-- DESKTOP NAVIGATION -->
 	<nav>
 		<div class="col-md-12">
 			<ul class="list-inline">
@@ -25,13 +25,19 @@
 					<i class="fas fa-home"></i>
 				</li>
 				<li class="list-inline-item">
-					<span style="color:var(--red)">Cup</span>Worm
+					<span style="color:var(--blue)">Cup</span><span style="color:var(--yellow)">Worm</span>
 				</li>
 				<li class="list-inline-item">
-					<p>Browse</p>
+					<a href="#" id="browseLink">
+						<p>Browse</p>
+					</a>
 				</li>
 			</ul>
 		</div>
 	</nav>
+	<!-- SLIDESHOW -->
+	<div class="col-lg-12">
+		
+	</div>
 </body>
 </html>
