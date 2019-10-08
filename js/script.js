@@ -1,17 +1,17 @@
 $(document).ready(function(){
 	$(".colorButton").click(function(){
-		var val = $(".colorPicker").css("display");
-		
+		var val = $(this).next().css("display");
+
 		if(val == "none"){
-			$(".colorPicker").fadeIn();
+			$(this).next().fadeIn();
 		}else{
-			$(".colorPicker").fadeOut();
+			$(this).next().fadeOut();
 		}
 	});
 
 	$(".inColorPicker").click(function(){
 		var val = $(this).css("background-color");
-		$(".colorButton").css("background-color",val);
+		$(this).parent().parent().prev().css("background-color",val);
 		$(".colorPicker").fadeOut();
 	});
 });

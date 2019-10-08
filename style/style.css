@@ -55,7 +55,7 @@ nav ul li:nth-child(2){
 	font-size:140%;
 	padding-left:20px;
 }
-#browseLink{
+#browseLink, #cartLink, #homeLink{
 	text-decoration: none;
 	color:var(--yellow);
 	transition: .5s;
@@ -73,10 +73,10 @@ nav ul li:nth-child(1):hover{
 	opacity: .5;
 }
 /*BRACELETS*/
-#braceletRow img{
+#braceletRow img, #necklaceRow img{
 	width:100%;
 }
-#braceletRow h1{
+#braceletRow h1, #necklaceRow h1{
 	margin:0 auto;
 	font-family:var(--bigF);
 	margin-top:15px;
@@ -88,7 +88,7 @@ nav ul li:nth-child(1):hover{
 	padding-left:50px;
 	padding-right: 50px;
 }
-#braceletRow h2{
+#braceletRow h2, #necklaceRow h2{
 	font-family:var(--secondF);
 	text-transform: uppercase;
 	margin-top:10px;
@@ -96,7 +96,7 @@ nav ul li:nth-child(1):hover{
 	font-size:130%;
 	margin-bottom:0px;
 }
-#braceletRow p{
+#braceletRow p, #necklaceRow p{
 	font-size:100%;
 	font-family:var(--thirdF);
 	margin-left:2%;
@@ -104,7 +104,7 @@ nav ul li:nth-child(1):hover{
 	padding-top:5px;
 	padding-bottom:-5px;
 }
-#braceletRow button{
+#braceletRow button, #necklaceRow button{
 	font-family:var(--thirdF);
 	margin-bottom:10px;
 	margin-top:-10px;
@@ -115,23 +115,14 @@ nav ul li:nth-child(1):hover{
 	border:none;
 	padding:5px 10px 5px 10px;
 }
-#braceletRow button:hover{
+#braceletRow button:hover, #necklaceRow button:hover{
 	color:var(--white);
 	transition: .5s;
 	cursor: pointer;
 	opacity: .8;
 }
-#braceletRow i{
-	float:right;
-	margin-top:10px;
-	margin-right:10px;
-	fill:blue !important;
-}
-#braceletRow i:hover{
-	cursor:pointer;
-	fill:orange !important;
-}
 
+/* COLORS */
 .colorButton{
 	border-radius:180px;
 	width:20px;
@@ -141,6 +132,7 @@ nav ul li:nth-child(1):hover{
 	height: 20px;
 	margin-top:20px;
 	margin-right:20px;
+	margin-left:5px;
 }
 .colorButton:hover{
 	cursor: pointer;
@@ -160,6 +152,7 @@ nav ul li:nth-child(1):hover{
 	height:20px;
 	background-color:blue;
 	margin-top:10px;
+	margin-left:5px;
 }
 .inColorPicker:hover{
 	cursor:pointer;
