@@ -76,7 +76,7 @@ nav ul li:nth-child(1):hover{
 #braceletRow img, #necklaceRow img{
 	width:100%;
 }
-#braceletRow h1, #necklaceRow h1{
+#necklaceh1, #braceleth1{
 	margin:0 auto;
 	font-family:var(--bigF);
 	margin-top:15px;
@@ -156,5 +156,33 @@ nav ul li:nth-child(1):hover{
 }
 .inColorPicker:hover{
 	cursor:pointer;
+}
+#slideshow{
+	width:70%;
+	margin:20px auto;
+	position: relative;
+}
+#slideshow img{
+	width:100%;
+}
+#slideshow i{
+	position: absolute;
+	font-size: 180%;
+}
+#slideshow i:nth-child(2){
+	float:left;
+	top:50%;
+	left:10px;
+}
+#slideshow i:nth-child(1){
+	float:right;
+	top:50%;
+	right:10px;
+}
+#slideshow i:hover{
+	color:var(--white);
+	transition: .5s;
+	cursor: pointer;
+	opacity: .8;
 }
 

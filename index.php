@@ -48,9 +48,15 @@
 			</ul>
 		</div>
 	</nav>
+	<!-- SLIDESHOW -->
+	<div id="slideshow">
+		<i class="fas fa-arrow-alt-circle-right"></i>
+		<i class="fas fa-arrow-alt-circle-left"></i>
+		<img src="pics/bracelet.jpg">
+	</div>
 	<!-- BRACELET -->
+	<h1 id="braceleth1">Bracelets</h1>
 	<div class="row" id="braceletRow">
-		<h1>Bracelets</h1>
 
 		<div class="col-lg-3">
 			<div class="braceletImgWrap">
@@ -191,8 +197,9 @@
 	</div>
 
 	<!-- NECKLACES -->
+	<h1 id="necklaceh1">Necklaces</h1>
 	<div class="row" id="necklaceRow">
-		<h1>Necklaces</h1>
+		
 
 		<div class="col-lg-3">
 			<div class="braceletImgWrap">
