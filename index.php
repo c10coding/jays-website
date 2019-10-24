@@ -93,6 +93,8 @@
 		</div>
 		<!-- SLIDESHOW -->
 		<div id="slideshow">
+			<h3>Like what you see? Let's do business!</h3>
+			<button>Shop for more!</button>
 			<i class="fas fa-arrow-alt-circle-right" id="slideRightArrow"></i>
 			<i class="fas fa-arrow-alt-circle-left" id="slideLeftArrow"></i>
 			<img src="pics/testL.jpg" id="slideShowImg">
@@ -404,7 +406,7 @@
 							<a href="#">Necklaces</a>
 						</li>
 						<li>
-							<a href="#">Contact us</a>
+							<a href="#" id="footerContact">Contact us</a>
 						</li>
 						<li>
 							<a href="#">Browse</a>
