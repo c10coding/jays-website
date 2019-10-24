@@ -381,12 +381,15 @@
 			</div>
 
 		</div>
-		
+		<br>
 		<!-- FOOTER -->
 		<footer>
 			<div class="row">
 				<div class="col-lg-6">
 					<h2><span style="color:var(--blue)">CUP</span><span style="color:var(--yellow)">WORM</span></h2>
+					<div style="text-align:center;">
+						<img src="pics/CupWorm.png">
+					</div>
 				</div>
 				<div class="col-lg-6">
 					<h2>MORE</h2>
@@ -407,7 +410,7 @@
 							<a href="#">Browse</a>
 						</li>
 					</ul>
-
+					
 				</div>	
 			</div>
 		</footer>

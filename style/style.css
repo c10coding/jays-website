@@ -212,6 +212,11 @@ footer .col-lg-6 h2{
 	font-family: var(--bigF);
 	text-align: center;
 }
+footer img{
+	width:30%;
+	margin-top:50px;
+	margin-left:10px;
+}
 #footerUl a{
 	text-decoration: none;
 	color:var(--yellow);
@@ -338,6 +343,8 @@ footer .col-lg-6 h2{
 		display: block;
 	}
 }
-@media only screen and (max-width: 650px) {
-
+@media only screen and (max-width: 991px) {
+	footer img{
+		display: none;
+	}
 }
