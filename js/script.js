@@ -64,16 +64,17 @@ $(document).ready(function(){
 				}
 		}, 250);
 	});
-	$("#contactUs").click(function(){
+	$("#contactUs,#footerContact, #contactUsMobile").click(function(){
 		var display = $("#contactModal").css("display");
 		$("#opacity").css("opacity",".5");
 		$("#contactModal").fadeIn("slow");
 	});
+	/*
 	$("#footerContact").click(function(){
 		var display = $("#contactModal").css("display");
 		$("#opacity").css("opacity",".5");
 		$("#contactModal").fadeIn("slow");
-	});
+	});*/
 	$("#contactClose").click(function(){
 		$("#contactModal").fadeOut("slow");
 		$("#opacity").css("opacity","1");

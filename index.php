@@ -25,14 +25,20 @@
 		<i class="fas fa-times" id="contactClose"></i>
 		<h2>Contact us</h2>
 		<form action="php/contactHandle.php" method="POST" id="contactForm">
-			<label>Email</label>
-			<input type="email" name="email" id="contactEmail" class="form-control">
+			<div class="contactInputWrap">
+				<label>Email</label>
+				<input type="email" name="email" id="contactEmail" class="form-control">
+			</div>
+			
+			<div class="contactInputWrap">
+				<label>Name</label>
+				<input type="text" name="name" id="contactName" class="form-control">
+			</div>
 
-			<label>Name</label>
-			<input type="text" name="name" id="contactName" class="form-control">
-
-			<label>Message</label>
-			<textarea class="form-control" id="contactMessage" name="message"></textarea>
+			<div class="contactInputWrap">
+				<label>Message</label>
+				<textarea class="form-control" id="contactMessage" name="message"></textarea>
+			</div>
 
 			<br>
 
@@ -80,13 +86,13 @@
 		<!-- MOBILE NAVIGATION -->
 		<div id="mobileNavPopout">
 			<ul class="list-unstyled">
-				<a href="">
+				<a href="#">
 					<li>Browse</li>
 				</a>
-				<a href="">
+				<a href="#" id="contactUsMobile">
 					<li>Contact us</li>
 				</a>
-				<a href="">
+				<a href="#">
 					<li>Cart</li>
 				</a>
 			</ul>
