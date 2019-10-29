@@ -25,14 +25,20 @@
 		<i class="fas fa-times" id="contactClose"></i>
 		<h2>Contact us</h2>
 		<form action="php/contactHandle.php" method="POST" id="contactForm">
-			<label>Email</label>
-			<input type="email" name="email" id="contactEmail" class="form-control">
+			<div class="contactInputWrap">
+				<label>Email</label>
+				<input type="email" name="email" id="contactEmail" class="form-control">
+			</div>
+			
+			<div class="contactInputWrap">
+				<label>Name</label>
+				<input type="text" name="name" id="contactName" class="form-control">
+			</div>
 
-			<label>Name</label>
-			<input type="text" name="name" id="contactName" class="form-control">
-
-			<label>Message</label>
-			<textarea class="form-control" id="contactMessage" name="message"></textarea>
+			<div class="contactInputWrap">
+				<label>Message</label>
+				<textarea class="form-control" id="contactMessage" name="message"></textarea>
+			</div>
 
 			<br>
 
@@ -80,19 +86,22 @@
 		<!-- MOBILE NAVIGATION -->
 		<div id="mobileNavPopout">
 			<ul class="list-unstyled">
-				<a href="">
+				<a href="#">
 					<li>Browse</li>
 				</a>
-				<a href="">
+				<a href="#" id="contactUsMobile">
 					<li>Contact us</li>
 				</a>
-				<a href="">
+				<a href="#">
 					<li>Cart</li>
 				</a>
 			</ul>
 		</div>
+		<br><br><br><br>
 		<!-- SLIDESHOW -->
 		<div id="slideshow">
+			<h3>Like what you see? Let's do business!</h3>
+			<button>Shop for more!</button>
 			<i class="fas fa-arrow-alt-circle-right" id="slideRightArrow"></i>
 			<i class="fas fa-arrow-alt-circle-left" id="slideLeftArrow"></i>
 			<img src="pics/testL.jpg" id="slideShowImg">
@@ -381,12 +390,15 @@
 			</div>
 
 		</div>
-		
+		<br>
 		<!-- FOOTER -->
 		<footer>
 			<div class="row">
 				<div class="col-lg-6">
 					<h2><span style="color:var(--blue)">CUP</span><span style="color:var(--yellow)">WORM</span></h2>
+					<div style="text-align:center;">
+						<img src="pics/CupWorm.png">
+					</div>
 				</div>
 				<div class="col-lg-6">
 					<h2>MORE</h2>
@@ -401,13 +413,13 @@
 							<a href="#">Necklaces</a>
 						</li>
 						<li>
-							<a href="#">Contact us</a>
+							<a href="#" id="footerContact">Contact us</a>
 						</li>
 						<li>
 							<a href="#">Browse</a>
 						</li>
 					</ul>
-
+					
 				</div>	
 			</div>
 		</footer>
