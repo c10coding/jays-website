@@ -49,8 +49,8 @@
 
 		</form>
 	</div>
-	<div id="opacity" style="transition:.5s;">
 	
+	<div id="opacity" style="transition:.5s;">
 		<!-- DESKTOP NAVIGATION -->
 		<nav>
 			<div class="col-md-12">
@@ -97,6 +97,7 @@
 				</a>
 			</ul>
 		</div>
+		<br><br><br><br>
 		<!-- SLIDESHOW -->
 		<div id="slideshow">
 			<h3>Like what you see? Let's do business!</h3>

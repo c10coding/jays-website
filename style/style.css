@@ -31,6 +31,10 @@ body{
 nav .col-md-12{
 	background-color: var(--red);
 	padding:5px;
+	position:fixed;
+	z-index:1000;
+	top:0;
+	left:0;
 }
 nav ul{
 	text-align: center;
@@ -94,6 +98,7 @@ nav ul li:nth-child(1):hover{
 	color:var(--blue);
 	padding-bottom:10px;
 	padding-left:50px;
+	z-index: 0;
 	padding-right: 50px;
 }
 #braceletRow h2, #necklaceRow h2{
@@ -273,7 +278,6 @@ footer img{
 }
 #contactModal{
 	display: none;
-	position: absolute;
 	background-color:white;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
 	padding:60px;
@@ -374,6 +378,104 @@ footer img{
 	transition: .5s;
 	cursor: pointer;
 	opacity: .8;
+}
+#cartInfo{
+	width:90%;
+	margin-right:auto;
+	margin-left:auto;
+}
+#cartInfo table{
+	text-align:center;
+}
+#cartHeader{
+	text-align:center;
+	padding:10px;
+	font-family:var(--bigF);
+	text-transform: uppercase;
+}
+#continueShop{
+	display: block;
+	text-align:center;
+	margin-left:-13px;
+	text-decoration: none;
+	color:var(--red);
+	margin-bottom:50px;
+}
+#continueShop i{
+	padding:5px;
+	color:var(--red);
+	font-size:110%;
+	transition: .5s;
+}
+#continueShop:hover{
+	transition: .5s;
+	cursor: pointer;
+	opacity: .8;
+}
+#continueShop span{
+	font-size:130%;
+	font-family:var(--secondF);
+}
+#cartInfo th{
+	font-family:var(--secondF);
+	color:var(--red);
+}
+#cartInfo td{
+	font-family:var(--thirdF);
+	padding:10px;
+}
+#cartInfo img{
+	width:100px;
+	height:100px;
+}
+#cartInfo tr td:nth-child(4){
+	font-size:150%;
+	color:var(--red);
+}
+#discountGroup{
+	width:20%;
+	margin-left:10%;
+}
+#discountGroup input{
+	text-align:center;
+	color:var(--red);
+	outline:none;
+}
+#discountGroup button:hover{
+	color:var(--yellow);
+	background-color:var(--red);
+	border:solid var(--red) 1px;
+}
+#discountText{
+	font-family:var(--secondF);
+	font-size:120%;
+	margin-left:10%;
+	margin-top:30px;
+}
+#discountGroup button{
+	font-family:var(--thirdF);
+	font-size:95%;
+}
+
+#continueToCheckout{
+	margin-left:80%;
+	padding:15px 20px 15px 20px;
+	font-family:var(--secondF);
+	border-radius:5px;
+	background-color:var(--red);
+	color:var(--yellow);
+	outline:none;
+	border:none;
+	transition: .5s;
+}
+#continueToCheckout:hover{
+	transition: .5s;
+	cursor: pointer;
+	opacity: .8;
+}
+
+#discountGroup input:focus{
+	outline:none;
 }
 @media only screen and (max-width: 650px) {
 	#shopAndBrowse{
