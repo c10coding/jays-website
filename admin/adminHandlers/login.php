@@ -1,11 +1,15 @@
 <?php
 
 ob_start();
+session_start();
 $dbhost = "localhost";
 $dbuser = "root";
 $dbpass = "";
 $con = mysqli_connect($dbhost,$dbuser,$dbpass,"CupWorm");
 if($con){
+
+	$POST = filter_var_array($_POST, FILTER_SANITIZE_STRING);
+
 	$username = $_POST["username"];
 	$password = $_POST["password"];
 	$checkbox = $_POST["checkbox"];
@@ -21,6 +25,12 @@ if($con){
 			echo "Your username is incorrect!";
 		}else{
 			if($password == $row["password"]){
+				if(!empty($checkbox)){
+					$time = $_SERVER['REQUEST_TIME'];
+					$_SESSION['LAST_ACTIVITY'] = $time;
+					$_SESSION["logged_in"] = true;
+				}
+				
 				echo "<script type='text/javascript'>  window.location='controlPanel.php?login=true'; </script>";
 			}else{
 				echo $password;

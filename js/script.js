@@ -134,6 +134,11 @@ $(document).ready(function(){
 			price : price
 		});
 	});
-
+	$("#adminLogout").click(function(){
+		var logout = true;
+		$("#temp").load("adminHandlers/logout.php", {
+			logout : logout
+		});
+	});
 });
 

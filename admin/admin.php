@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,6 @@
 	<link rel="stylesheet" href="../font-awesome/css/all.css">
 	<!-- ESSENTIAL META TAGS -->
 	<meta name="viewport" content="width=device-width, intitial-scale=1, shrink-to-fit-no">
-	<meta charset="utf-8">
 </head>
 <body>
 	<div class="container">	
@@ -31,8 +31,8 @@
 		<input type="password" class="form-control mb-3" name="password" id="adminPassword">
 		<input type="submit" class="btn btn-primary btn-md mb-4" name="submit" id="adminSubmit">
 		<br>
-		<label>Remember me for 1 week</label>
-		<input type="checkbox" id="adminCheckbox">
+		<label class="mr-3">Remember me for 1 week</label>
+		<input type="checkbox" id="adminCheckbox" value="yes">
 		<p class="text-danger ml-2" id="admin_log_message"></p>
 	</form>
 	</div>
