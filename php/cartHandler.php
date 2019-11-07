@@ -25,14 +25,14 @@
 					$num = $x;
 					if($current == $item[0]){
 						$_SESSION["cart"][$x][2]++;
-						echo "here";
+						echo "You have added this item to your cart!";
 						break;
 					}else if($current ==! $item[0] && $x == $count){
-						echo "herefds";
+						echo "You have added this item to your cart!";
 						array_push($_SESSION["cart"],$item);
 						break;
 					}else if($current ==! $item[0] && $num == 0){
-						echo "herefdssdfafsadfds";
+						echo "You have added this item to your cart!";
 						array_push($_SESSION["cart"],$item);
 						break;
 					}else{
@@ -43,8 +43,8 @@
 			
 
 		}else{
-			//$_SESSION["cart"] = array_diff($_SESSION["cart"],$item);
-			//echo "You have removed this item from your cart!";
+			$_SESSION["cart"] = array_diff($_SESSION["cart"],$item);
+			echo "You have removed this item from your cart!";
 		}
 	}	
 

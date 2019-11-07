@@ -107,27 +107,31 @@
 		<div id="cartInfo">
 			<table style="width:100%;"> 
 				<tr>
+					<th>Remove item</th>
 					<th></th>
 					<th>Item</th>
 					<th>Quanitity</th>
 					<th>Price</th>
 				</tr>
 				<tr>
+					<td><i class="fas fa-times"></i></td>
 					<td><img src="pics/testL.jpg"></td>
 					<td>This is my first item</td>
-					<td>This item is very good. It is a blah blah blah</td>
+					<td>1</td>
 					<td>$1</td>
 				</tr>
 				<tr>
+					<td><i class="fas fa-times"></i></td>
 					<td><img src="pics/testL.jpg"></td>
 					<td>Item1</td>
-					<td>Descrption1</td>
+					<td>2</td>
 					<td>$2</td>
 				</tr>
 				<tr>
+					<td><i class="fas fa-times"></i></td>
 					<td><img src="pics/testL.jpg"></td>
 					<td>Item1</td>
-					<td>Descrption1</td>
+					<td>3</td>
 					<td>$50</td>
 				</tr>
 			</table>

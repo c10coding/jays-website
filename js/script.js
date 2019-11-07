@@ -10,6 +10,19 @@ $(document).ready(function(){
 		}
 	});
 
+	$("#adminSubmit").click(function(e){
+		e.preventDefault();
+		e.stopPropagation();
+		var username = $("#adminUsername").val();
+		var password = $("#adminPassword").val();
+		var checkbox = $("#adminCheckbox").val();
+		$("#admin_log_message").load("adminHandlers/login.php",{
+			username : username,
+			password : password,
+			checkbox : checkbox
+		});
+
+	});
 	$(".inColorPicker").click(function(){
 		var val = $(this).css("background-color");
 		$(this).parent().parent().prev().css("background-color",val);
@@ -82,7 +95,7 @@ $(document).ready(function(){
 	//Contact form
 	$("#contactForm").submit(function(event){
 		event.preventDefault();
-
+		event.stopPropagation();
 		var email = $("#contactEmail").val();
 		var name = $("#contactName").val();
 		var message = $("#contactMessage").val();
@@ -121,5 +134,6 @@ $(document).ready(function(){
 			price : price
 		});
 	});
+
 });
 
