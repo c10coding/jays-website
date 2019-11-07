@@ -477,6 +477,43 @@ footer img{
 #discountGroup input:focus{
 	outline:none;
 }
+#otherThingsHeader{
+	font-family:var(--bigF);
+	text-align: center;
+	padding:15px;
+}
+#otherThings img{
+	width:inherit;
+	height:inherit;
+}
+#otherThings .col-lg-3 h2{
+	font-family:var(--secondF);
+	margin-top:15px;
+	margin-left:10px;
+	font-size:150%;
+}
+#otherThings .col-lg-3 p{
+	font-family:var(--thirdF);
+	font-size:120%;
+	color:var(--red);
+	margin-left: 10px;
+}
+#otherThings .col-lg-3 button{
+	font-family:var(--secondF);
+	background-color:var(--red);
+	color:var(--yellow);
+	outline:none;
+	border:hidden;
+	border-radius: 5px;
+	padding:15px 20px 15px 20px;
+	transition: .5s;
+	margin-left:10px;
+}
+#otherThings .col-lg-3 button:hover{
+	transition: .5s;
+	cursor: pointer;
+	opacity: .8;
+}
 @media only screen and (max-width: 650px) {
 	#shopAndBrowse{
 		display: none;

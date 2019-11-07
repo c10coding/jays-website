@@ -49,11 +49,7 @@
 
 		</form>
 	</div>
-	<!--Mini cart-->
-	<div id="miniCart">
-		<h2>Your cart</h2>
-		<p>Continue shopping</p>
-	</div>
+	
 	<div id="opacity" style="transition:.5s;">
 	
 		<!-- DESKTOP NAVIGATION -->
@@ -145,6 +141,72 @@
 			</div>
 		</div>
 
-		<button id="continueToCheckout">Continue to checkout</button>
+		<button id="continueToCheckout" onclick="window.location.href = 'checkout.php'">Continue to checkout</button>
+		<!-- OTHER THINGS YOU MAY LIKE -->
+		<h2 id="otherThingsHeader">Here's some other things you may like!</h2>
+		<div class="row" id="otherThings">
+			<div class="col-lg-3">
+				<img src="pics/testL.jpg">
+				<h2>This is an item</h2>
+				<p>$50</p>
+				<button>Add to cart</button>
+			</div>
+			<div class="col-lg-3">
+				<img src="pics/testL.jpg">
+				<h2>This is another item</h2>
+				<p>$50</p>
+				<button>Add to cart</button>
+			</div>
+			<div class="col-lg-3">
+				<img src="pics/testL.jpg">
+				<h2>This is another item as well</h2>
+				<p>$50</p>
+				<button>Add to cart</button>
+			</div>
+			<div class="col-lg-3">
+				<img src="pics/testL.jpg">
+				<h2>This is the last item</h2>
+				<p>$50</p>
+				<button>Add to cart</button>
+			</div>
+		</div>
+		<br><br>
+		<!-- FOOTER -->
+		<footer>
+			<div class="row">
+				<div class="col-lg-6">
+					<h2><span style="color:var(--blue)">CUP</span><span style="color:var(--yellow)">WORM</span></h2>
+					<div style="text-align:center;">
+						<img src="pics/CupWorm.png">
+					</div>
+				</div>
+				<div class="col-lg-6">
+					<h2>MORE</h2>
+					<ul class="list-unstyled" id="footerUl">
+						<li>
+							<a href="">Bracelets</a>
+						</li>
+						<li>
+							<a href="#">Cart</a>
+						</li>
+						<li>
+							<a href="#">Necklaces</a>
+						</li>
+						<li>
+							<a href="#" id="footerContact">Contact us</a>
+						</li>
+						<li>
+							<a href="#">Browse</a>
+						</li>
+					</ul>
+					
+				</div>	
+			</div>
+		</footer>
+		<!-- MY CREDIT -->
+		<div class="col-lg-12" id="myCredit">
+			<p>Website made by <a href="https://caleb-development.000webhostapp.com">Caleb Owens</a></p>
+		</div>
+
 </body>
 </html>

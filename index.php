@@ -1,3 +1,9 @@
+<?php
+	if(isset($_SESSION["cart"])){
+		session_start();
+		$cart = $_SESSION["cart"];
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -73,7 +79,7 @@
 							<p id="contactUs">Contact us</p>
 						</li>
 						<li class="list-inline-item">
-							<a href="#" id="cartLink">
+							<a href="cart.php" id="cartLink">
 								<i class="fas fa-shopping-cart"></i>
 							</a>
 							<span style="font-size:50%;border-radius:180px;border:hidden;">3</span>
@@ -138,9 +144,10 @@
 				</div>
 				
 
-				<h2>Resin Octagonal Hoop Earrings</h2>
+				<h2>Resin Octagonal Hoop Eardfsridfsangfdsas</h2>
 				<p>$22.50</p>
-				<button onclick="window.location.href = '#'">Add to cart</button>
+				<button class="add_to_cart">Add to cart</button>
+				<p class="ml-2 mt-1 text-success cart_success_message" style="font-family:var(--secondF)"></p>
 			</div>
 
 			<div class="col-lg-3">
@@ -170,10 +177,13 @@
 					</ul>
 				</div>
 				
-
-				<h2>Resin Octagonal Hoop Earrings</h2>
-				<p>$22.50</p>
-				<button onclick="window.location.href = '#'">Add to cart</button>
+				<div class="holder">	
+					<h2>test1dsf</h2>
+					<p>$22.50</p>
+					<button class="add_to_cart">Add to cart</button>
+					<p class="ml-2 mt-1 text-success cart_success_message" style="font-family:var(--secondF)"></p>
+				</div>
+				
 			</div>
 
 			<div class="col-lg-3">
@@ -203,10 +213,10 @@
 					</ul>
 				</div>
 				
-
 				<h2>Resin Octagonal Hoop Earrings</h2>
 				<p>$22.50</p>
-				<button onclick="window.location.href = '#'">Add to cart</button>
+				<button class="add_to_cart">Add to cart</button>
+				<p class="ml-2 mt-1 text-success" style="font-family:var(--secondF)" class="cart_success_message"></p>
 			</div>
 
 			<div class="col-lg-3">
@@ -243,7 +253,8 @@
 
 				<h2>Resin Octagonal Hoop Earrings</h2>
 				<p>$22.50</p>
-				<button onclick="window.location.href = '#'">Add to cart</button>
+				<button class="add_to_cart">Add to cart</button>
+				<p class="ml-2 mt-1 text-success" style="font-family:var(--secondF)" class="cart_success_message"></p>
 			</div>
 
 		</div>
@@ -283,7 +294,8 @@
 
 				<h2>Resin Octagonal Hoop Earrings</h2>
 				<p>$22.50</p>
-				<button onclick="window.location.href = '#'">Add to cart</button>
+				<button class="add_to_cart">Add to cart</button>
+				<p class="ml-2 mt-1 text-success" style="font-family:var(--secondF)" class="cart_success_message"></p>
 			</div>
 
 			<div class="col-lg-3">
@@ -316,7 +328,8 @@
 
 				<h2>Resin Octagonal Hoop Earrings</h2>
 				<p>$22.50</p>
-				<button onclick="window.location.href = '#'">Add to cart</button>
+				<button class="add_to_cart">Add to cart</button>
+				<p class="ml-2 mt-1 text-success" style="font-family:var(--secondF)" class="cart_success_message"></p>
 			</div>
 
 			<div class="col-lg-3">
@@ -348,7 +361,8 @@
 				
 				<h2>Resin Octagonal Hoop Earrings</h2>
 				<p>$22.50</p>
-				<button onclick="window.location.href = '#'">Add to cart</button>
+				<button class="add_to_cart">Add to cart</button>
+				<p class="ml-2 mt-1 text-success" style="font-family:var(--secondF)" class="cart_success_message"></p>
 
 			</div>
 
@@ -386,7 +400,8 @@
 
 				<h2>Resin Octagonal Hoop Earrings</h2>
 				<p>$22.50</p>
-				<button onclick="window.location.href = '#'">Add to cart</button>
+				<button class="add_to_cart">Add to cart</button>
+				<p class="ml-2 mt-1 text-success" style="font-family:var(--secondF)" class="cart_success_message"></p>
 			</div>
 
 		</div>
@@ -431,5 +446,7 @@
 	
 </body>
 </html>
+
+
 
 

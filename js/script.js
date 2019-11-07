@@ -107,4 +107,19 @@ $(document).ready(function(){
 		}
 
 	});
+
+	$(".add_to_cart").click(function(){
+		//FIX THIS
+		var item_name = $(this).prev().prev().text();
+		var price = $(this).prev().text();
+		var add = true;
+		console.log(item_name);
+		var cart_message = $(this).next();
+		$(cart_message).load("php/cartHandler.php",{
+			item_name : item_name,
+			add : add,
+			price : price
+		});
+	});
 });
+
