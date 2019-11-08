@@ -71,6 +71,12 @@
 			<label class="mb-2">Product name</label>
 			<input type="text" class="form-control mb-2" placeholder="Item name goes here..." name="product_name">
 
+			<label class="mb-2">Product type</label>
+			<select name="product_type" id="" class="mb-2 form-control">
+				<option value="bracelet">Bracelet</option>
+				<option value="necklace">Necklace</option>
+			</select>
+
 			<label class="mb-2">Price</label>
 			<input type="text" class="form-control mb-2" placeholder="Item name goes here..." name="product_price">
 			<!-- IMAGES -->

@@ -3,7 +3,14 @@
 		session_start();
 		$cart = $_SESSION["cart"];
 	}
-?>
+
+	$dbhost = "localhost";
+	$dbuser = "root";
+	$dbpass = "";
+	$con = mysqli_connect($dbhost,$dbuser,$dbpass,"CupWorm");
+
+	
+	?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -112,6 +119,13 @@
 			<i class="fas fa-arrow-alt-circle-left" id="slideLeftArrow"></i>
 			<img src="pics/testL.jpg" id="slideShowImg">
 		</div>
+
+		<?php
+			$sql = "SELECT * FROM product WHERE product_type='bracelet'";
+			$results = mysqli_query($con,$sql);
+			$row = mysqli_fetch_assoc($results);
+		?>
+
 		<!-- BRACELET -->
 		<h1 id="braceleth1">Bracelets</h1>
 		<div class="row" id="braceletRow">
