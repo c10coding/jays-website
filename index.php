@@ -1,16 +1,111 @@
 <?php
+
+	
+
 	if(isset($_SESSION["cart"])){
 		session_start();
 		$cart = $_SESSION["cart"];
 	}
-
-	$dbhost = "localhost";
-	$dbuser = "root";
-	$dbpass = "";
-	$con = mysqli_connect($dbhost,$dbuser,$dbpass,"CupWorm");
-
 	
+
+	function getBracelet($num, $what){
+
+		include("php/connection.php");
+		$availableImages = array();
+		$availableColors = array();
+
+		$myRow = $num - 1;
+		$sql = "SELECT * FROM product WHERE product_type='bracelet' LIMIT 1 OFFSET $myRow";
+		$results = mysqli_query($con,$sql);
+		$row = mysqli_fetch_assoc($results);
+
+		//Variables for each product
+		$name = $row["product_name"];
+		$price = $row["price"];
+		
+		$colors = array("black","white","red","orange","yellow","green","purple","pink","gray","brown");
+		
+		for($x = 0;$x < 10;$x++){
+			$current = $row[$colors[$x]];
+			if(!empty($current)){
+				
+				array_push($availableImages, $current);
+				array_push($availableColors, $colors[$x]);
+
+			}
+		}
+
+		if($what == "colors"){
+			echoColors($availableColors);
+		}else if($what == "name"){
+			echo $name;
+		}else if($what == "price"){
+			echo $price;
+		}else if($what == "image"){
+			echo "<img src='pics/$availableImages[0]'>";
+		}
+
+	}
+		
+	function getNecklace($num,$what){
+
+		include("php/connection.php");
+
+		$availableImages = array();
+		$availableColors = array();
+
+		$myRow = $num - 1;
+		$sql = "SELECT * FROM product WHERE product_type='necklace' LIMIT 1 OFFSET $myRow";
+		$results = mysqli_query($con,$sql);
+		$row = mysqli_fetch_assoc($results);
+
+		//Variables for each product
+		$name = $row["product_name"];
+		$price = $row["price"];
+		
+		$colors = array("black","white","red","orange","yellow","green","purple","pink","gray","brown");
+		
+		for($x = 0;$x < 10;$x++){
+			$current = $row[$colors[$x]];
+			if(!empty($current)){
+				
+				array_push($availableImages, $current);
+				array_push($availableColors, $colors[$x]);
+			}
+		}
+
+		if($what == "colors"){
+			echoColors($availableColors);
+		}else if($what == "name"){
+			echo $name;
+		}else if($what == "price"){
+			echo $price;
+		}else if($what == "image"){
+			echo "<img src='pics/$availableImages[0]'>";
+		}
+	}
+
+	function echoColors($arr){
+
+		for($i = 0;$i < count($arr);$i++){
+			$color = $arr[$i];
+			$id = $color . "Color";
+
+			if($color == "brown"){
+				$color = "#987854";
+			}
+			echo "<li class='list-inline-item'>
+					<div class='inColorPicker' style='display:block;background-color:$color;' id='$id'></div>
+				</li>";
+
+		}
+
+	}
+
 	?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -63,6 +158,7 @@
 		</form>
 	</div>
 	
+
 	<div id="opacity" style="transition:.5s;">
 		<!-- DESKTOP NAVIGATION -->
 		<nav>
@@ -120,196 +216,171 @@
 			<img src="pics/testL.jpg" id="slideShowImg">
 		</div>
 
-		<?php
-			$sql = "SELECT * FROM product WHERE product_type='bracelet'";
-			$results = mysqli_query($con,$sql);
-			$row = mysqli_fetch_assoc($results);
-		?>
 
 		<!-- BRACELET -->
+		<!-- FIRST PRODUCT -->
 		<h1 id="braceleth1">Bracelets</h1>
 		<div class="row" id="braceletRow">
 
 			<div class="col-lg-3">
 				<div class="braceletImgWrap">
-					<img src="pics/bracelet.jpg">
+					<?php
+						getBracelet(1,"image");
+					?>
 				</div>
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
 					<div class="colorButton"></div>
 					<ul class="list-inline colorPicker">
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:blue;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:red;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:orange;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:black;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker"></div>
-						</li>
+						<?php
+							getBracelet(1, "colors");
+						?>
 					</ul>
 				</div>
 				
-
-				<h2>Resin Octagonal Hoop Eardfsridfsangfdsas</h2>
-				<p>$22.50</p>
+				<h2>
+					<?php
+						getBracelet(1, "name");
+					?>
+				</h2>
+				<p><?php
+						echo getBracelet(1, "price") . " USD";
+					?>
+				</p>
 				<button class="add_to_cart">Add to cart</button>
 				<p class="ml-2 mt-1 text-success cart_success_message" style="font-family:var(--secondF)"></p>
 			</div>
-
+			<!-- SECOND PRODUCT -->
 			<div class="col-lg-3">
 				<div class="braceletImgWrap">
-					<img src="pics/bracelet.jpg">
+					<?php
+						getBracelet(2,"image");
+					?>
 				</div>
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
 					<div class="colorButton"></div>
 					<ul class="list-inline colorPicker">
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:blue;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:red;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:orange;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:black;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker"></div>
-						</li>
+						<?php
+							getBracelet(2, "colors");
+						?>
 					</ul>
 				</div>
 				
-				<div class="holder">	
-					<h2>test1dsf</h2>
-					<p>$22.50</p>
-					<button class="add_to_cart">Add to cart</button>
-					<p class="ml-2 mt-1 text-success cart_success_message" style="font-family:var(--secondF)"></p>
-				</div>
-				
-			</div>
 
-			<div class="col-lg-3">
-				<div class="braceletImgWrap">
-					<img src="pics/bracelet.jpg">
-				</div>
-
-				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
-				<div class="colors">
-					<div class="colorButton"></div>
-					<ul class="list-inline colorPicker">
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:blue;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:red;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:orange;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:black;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker"></div>
-						</li>
-					</ul>
-				</div>
-				
-				<h2>Resin Octagonal Hoop Earrings</h2>
-				<p>$22.50</p>
+				<h2>
+					<?php
+						getBracelet(2, "name");
+					?>
+				</h2>
+				<p><?php
+						echo getBracelet(2, "price") . " USD";
+					?>
+				</p>
 				<button class="add_to_cart">Add to cart</button>
-				<p class="ml-2 mt-1 text-success" style="font-family:var(--secondF)" class="cart_success_message"></p>
+				<p class="ml-2 mt-1 text-success cart_success_message" style="font-family:var(--secondF)"></p>
 			</div>
-
+			<!-- THIRD PRODUCT -->
 			<div class="col-lg-3">
 				<div class="braceletImgWrap">
-					<img src="pics/bracelet.jpg">
+					<?php
+						getBracelet(3,"image");
+					?>
 				</div>
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
 					<div class="colorButton"></div>
 					<ul class="list-inline colorPicker">
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:blue;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:red;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:orange;"></div>
-						</li>
-						<br>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:black;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker"></div>
-						</li>
+						<?php
+							getBracelet(3, "colors");
+						?>
 					</ul>
 				</div>
 				
 
-				<h2>Resin Octagonal Hoop Earrings</h2>
-				<p>$22.50</p>
+				<h2>
+					<?php
+						getBracelet(3, "name");
+					?>
+				</h2>
+				<p><?php
+						echo getBracelet(3, "price") . " USD";
+					?>
+				</p>
 				<button class="add_to_cart">Add to cart</button>
-				<p class="ml-2 mt-1 text-success" style="font-family:var(--secondF)" class="cart_success_message"></p>
+				<p class="ml-2 mt-1 text-success cart_success_message" style="font-family:var(--secondF)"></p>
 			</div>
+			<!-- FOURTH PRODUCT -->
+			<div class="col-lg-3">
+				<div class="braceletImgWrap">
+					<?php
+						getBracelet(4,"image");
+					?>
+				</div>
 
+				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
+				<div class="colors">
+					<div class="colorButton"></div>
+					<ul class="list-inline colorPicker">
+						<?php
+							getBracelet(4, "colors");
+						?>
+					</ul>
+				</div>
+				
+
+				<h2>
+					<?php
+						getBracelet(4, "name");
+					?>
+				</h2>
+				<p><?php
+						echo getBracelet(4, "price") . " USD";
+					?>
+				</p>
+				<button class="add_to_cart">Add to cart</button>
+				<p class="ml-2 mt-1 text-success cart_success_message" style="font-family:var(--secondF)"></p>
+			</div>
+				
 		</div>
 
 		<!-- NECKLACES -->
 		<h1 id="necklaceh1">Necklaces</h1>
 		<div class="row" id="necklaceRow">
 			
-
+			<!-- THIRD PRODUCT -->
 			<div class="col-lg-3">
 				<div class="braceletImgWrap">
-					<img src="pics/bracelet.jpg">
+					<?php
+						getNecklace(1,"image");
+					?>
 				</div>
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
-				<div class="colors" style="position:relative">
+				<div class="colors">
 					<div class="colorButton"></div>
 					<ul class="list-inline colorPicker">
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:blue;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:red;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:orange;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:black;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker"></div>
-						</li>
+						<?php
+							getNecklace(1, "colors");
+						?>
 					</ul>
 				</div>
 				
 
-				<h2>Resin Octagonal Hoop Earrings</h2>
-				<p>$22.50</p>
+				<h2>
+					<?php
+						getNecklace(1, "name");
+					?>
+				</h2>
+				<p><?php
+						echo getNecklace(1, "price") . " USD";
+					?>
+				</p>
 				<button class="add_to_cart">Add to cart</button>
-				<p class="ml-2 mt-1 text-success" style="font-family:var(--secondF)" class="cart_success_message"></p>
+				<p class="ml-2 mt-1 text-success cart_success_message" style="font-family:var(--secondF)"></p>
 			</div>
 
 			<div class="col-lg-3">
@@ -460,7 +531,3 @@
 	
 </body>
 </html>
-
-
-
-

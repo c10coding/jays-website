@@ -27,6 +27,21 @@ $(document).ready(function(){
 		var val = $(this).css("background-color");
 		$(this).parent().parent().prev().css("background-color",val);
 		$(".colorPicker").fadeOut();
+		var colorPicker = $(this);
+		var name = $(this).parent().parent().parent().next().text();
+		//.trim()
+		var color = this.style.backgroundColor;
+		$.ajax({
+	  		url: "php/colorChanger.php",
+	  		type: "POST",
+	  		data:{"name":name.trim(),"color":color}
+		}).done(function(data) {
+			var temp = data.trim();
+			var img = colorPicker.parent().parent().parent().prev().children();
+			var path = "pics/" + temp;
+			$(img).attr("src", path);
+		});
+
 	});
 
 	//VARIABLES FOR SLIDESHOW
