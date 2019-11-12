@@ -12,31 +12,31 @@
 		$price = $_POST["price"];
 		$item = array($item_name, $price, 1);
 		if($add == true){
-			$count = 0;
-			foreach ($_SESSION["cart"] as $type) {
-    			$count+= count($type);
-			}
-			$count/=3;
+			$count = count($_SESSION["cart"]);
+			echo $count;
 			if($count == 0){
+				echo "You have added this item to your cart!";
 				array_push($_SESSION["cart"],$item);
 			}else{
-				for($x = 0;$x <= $count;$x++){
+				for($x = 0;$x < $count;$x++){
 					$current = $_SESSION["cart"][$x][0];
 					$num = $x;
+					echo $item[0];
+					echo $current;
+					print_r($_SESSION["cart"]);
 					if($current == $item[0]){
 						$_SESSION["cart"][$x][2]++;
-						echo "You have added this item to your cart!";
+						echo "You have added this item to your cart! bruh";
+						print_r($_SESSION["cart"]);
 						break;
-					}else if($current ==! $item[0] && $x == $count){
-						echo "You have added this item to your cart!";
-						array_push($_SESSION["cart"],$item);
-						break;
-					}else if($current ==! $item[0] && $num == 0){
-						echo "You have added this item to your cart!";
+					// If this item is not in the cart
+					}else if($current ==! $item[0]){
+						echo "You have added this item to your cart! do";
+						print_r($_SESSION["cart"]);
+
 						array_push($_SESSION["cart"],$item);
 						break;
 					}else{
-
 					}
 				}
 			}

@@ -1,13 +1,14 @@
 <?php
 
-	
-
 	if(isset($_SESSION["cart"])){
 		session_start();
 		$cart = $_SESSION["cart"];
+
+		$num = count($_SESSION["cart"]);
+
+		echo $num;
 	}
 	
-
 	function getBracelet($num, $what){
 
 		include("php/connection.php");
@@ -15,7 +16,7 @@
 		$availableColors = array();
 
 		$myRow = $num - 1;
-		$sql = "SELECT * FROM product WHERE product_type='bracelet' LIMIT 1 OFFSET $myRow";
+		$sql = "SELECT * FROM product WHERE product_type='bracelet' ORDER BY id DESC LIMIT 1 OFFSET $myRow" ;
 		$results = mysqli_query($con,$sql);
 		$row = mysqli_fetch_assoc($results);
 
@@ -55,7 +56,7 @@
 		$availableColors = array();
 
 		$myRow = $num - 1;
-		$sql = "SELECT * FROM product WHERE product_type='necklace' LIMIT 1 OFFSET $myRow";
+		$sql = "SELECT * FROM product WHERE product_type='necklace' ORDER BY id DESC LIMIT 1 OFFSET $myRow";
 		$results = mysqli_query($con,$sql);
 		$row = mysqli_fetch_assoc($results);
 
@@ -103,8 +104,6 @@
 	}
 
 	?>
-
-
 
 <!DOCTYPE html>
 <html>
@@ -351,7 +350,7 @@
 		<h1 id="necklaceh1">Necklaces</h1>
 		<div class="row" id="necklaceRow">
 			
-			<!-- THIRD PRODUCT -->
+			<!-- FIRST PRODUCT -->
 			<div class="col-lg-3">
 				<div class="braceletImgWrap">
 					<?php
@@ -382,112 +381,103 @@
 				<button class="add_to_cart">Add to cart</button>
 				<p class="ml-2 mt-1 text-success cart_success_message" style="font-family:var(--secondF)"></p>
 			</div>
-
+			<!-- SECOND PRODUCT -->
 			<div class="col-lg-3">
 				<div class="braceletImgWrap">
-					<img src="pics/bracelet.jpg">
+					<?php
+						getNecklace(2,"image");
+					?>
 				</div>
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
 					<div class="colorButton"></div>
 					<ul class="list-inline colorPicker">
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:blue;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:red;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:orange;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:black;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker"></div>
-						</li>
+						<?php
+							getNecklace(2, "colors");
+						?>
 					</ul>
 				</div>
 				
 
-				<h2>Resin Octagonal Hoop Earrings</h2>
-				<p>$22.50</p>
+				<h2>
+					<?php
+						getNecklace(2, "name");
+					?>
+				</h2>
+				<p><?php
+						echo getNecklace(2, "price") . " USD";
+					?>
+				</p>
 				<button class="add_to_cart">Add to cart</button>
-				<p class="ml-2 mt-1 text-success" style="font-family:var(--secondF)" class="cart_success_message"></p>
+				<p class="ml-2 mt-1 text-success cart_success_message" style="font-family:var(--secondF)"></p>
 			</div>
 
-			<div class="col-lg-3">
 
-				<div class="braceletImgWrap">
-					<img src="pics/bracelet.jpg">
-				</div>
-
-				<div class="colors">
-					<div class="colorButton"></div>
-					<ul class="list-inline colorPicker">
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:blue;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:red;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:orange;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:black;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker"></div>
-						</li>
-					</ul>
-				</div>
-				
-				<h2>Resin Octagonal Hoop Earrings</h2>
-				<p>$22.50</p>
-				<button class="add_to_cart">Add to cart</button>
-				<p class="ml-2 mt-1 text-success" style="font-family:var(--secondF)" class="cart_success_message"></p>
-
-			</div>
-
+			<!-- THIRD PRODUCT -->
 			<div class="col-lg-3">
 				<div class="braceletImgWrap">
-					<img src="pics/bracelet.jpg">
+					<?php
+						getNecklace(3,"image");
+					?>
 				</div>
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
 					<div class="colorButton"></div>
 					<ul class="list-inline colorPicker">
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:blue;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:red;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:orange;"></div>
-						</li>
-						<br>
-						<li class="list-inline-item">
-							<div class="inColorPicker" style="background-color:black;"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker"></div>
-						</li>
-						<li class="list-inline-item">
-							<div class="inColorPicker"></div>
-						</li>
+						<?php
+							getNecklace(3, "colors");
+						?>
 					</ul>
 				</div>
 				
 
-				<h2>Resin Octagonal Hoop Earrings</h2>
-				<p>$22.50</p>
+				<h2>
+					<?php
+						getNecklace(3, "name");
+					?>
+				</h2>
+				<p><?php
+						echo getNecklace(3, "price") . " USD";
+					?>
+				</p>
 				<button class="add_to_cart">Add to cart</button>
-				<p class="ml-2 mt-1 text-success" style="font-family:var(--secondF)" class="cart_success_message"></p>
+				<p class="ml-2 mt-1 text-success cart_success_message" style="font-family:var(--secondF)"></p>
 			</div>
+
+			<!-- FOURTH PRODUCT -->
+			<div class="col-lg-3">
+				<div class="braceletImgWrap">
+					<?php
+						getNecklace(4,"image");
+					?>
+				</div>
+
+				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
+				<div class="colors">
+					<div class="colorButton"></div>
+					<ul class="list-inline colorPicker">
+						<?php
+							getNecklace(4, "colors");
+						?>
+					</ul>
+				</div>
+				
+
+				<h2>
+					<?php
+						getNecklace(4, "name");
+					?>
+				</h2>
+				<p><?php
+						echo getNecklace(4, "price") . " USD";
+					?>
+				</p>
+				<button class="add_to_cart">Add to cart</button>
+				<p class="ml-2 mt-1 text-success cart_success_message" style="font-family:var(--secondF)"></p>
+			</div>
+
 
 		</div>
 		<br>
