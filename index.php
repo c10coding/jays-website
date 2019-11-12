@@ -1,12 +1,16 @@
 <?php
-
+session_start();
 	if(isset($_SESSION["cart"])){
-		session_start();
+		
 		$cart = $_SESSION["cart"];
 
-		$num = count($_SESSION["cart"]);
+		$count = 0;
+		foreach($_SESSION["cart"] as $product){
+			$count+= count($product);
+		}
 
-		echo $num;
+		$count/=3;
+
 	}
 	
 	function getBracelet($num, $what){
@@ -184,7 +188,11 @@
 							<a href="cart.php" id="cartLink">
 								<i class="fas fa-shopping-cart"></i>
 							</a>
-							<span style="font-size:50%;border-radius:180px;border:hidden;">3</span>
+							<span style="font-size:50%;border-radius:180px;border:hidden;">
+								<?php
+									echo $count;
+								?>
+							</span>
 						</li>
 					</div>
 				</ul>

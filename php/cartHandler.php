@@ -5,42 +5,52 @@
 	//Makes an array within a sesssion
 	if(!isset($_SESSION["cart"])){
 		$_SESSION["cart"] = array();
-		$session = $_SESSION["cart"];
 	}else{
 		$item_name = $_POST["item_name"];
 		$add = $_POST["add"];
 		$price = $_POST["price"];
-		$item = array($item_name, $price, 1);
+
+		$item = array(
+			"Item_Name"=>$item_name,
+			"Price"=>$price,
+			"Quantity"=>1
+		);
+
+		$count = 0;
+		foreach($_SESSION["cart"] as $product){
+			$count+= count($product);
+		}
+
+		$count/=3;
 		if($add == true){
-			$count = count($_SESSION["cart"]);
-			echo $count;
+			//If the array is empty, just push the item
 			if($count == 0){
 				echo "You have added this item to your cart!";
 				array_push($_SESSION["cart"],$item);
 			}else{
-				for($x = 0;$x < $count;$x++){
-					$current = $_SESSION["cart"][$x][0];
-					$num = $x;
-					echo $item[0];
-					echo $current;
-					print_r($_SESSION["cart"]);
-					if($current == $item[0]){
-						$_SESSION["cart"][$x][2]++;
-						echo "You have added this item to your cart! bruh";
-						print_r($_SESSION["cart"]);
-						break;
-					// If this item is not in the cart
-					}else if($current ==! $item[0]){
-						echo "You have added this item to your cart! do";
-						print_r($_SESSION["cart"]);
 
-						array_push($_SESSION["cart"],$item);
+				$execute = false;
+
+				for($x = 0;$x < $count;$x++){
+					$currentIndex = $_SESSION["cart"][$x]["Item_Name"];
+					if($item["Item_Name"] == $currentIndex){
+						$index = $x;
+						$_SESSION["cart"][$x]["Quantity"]++;
+						echo "You have increased the quanitity of this item by 1!";
+						$execute = false;
 						break;
 					}else{
+						$execute = true;
 					}
+
 				}
+
+				if($execute == true){
+					echo "You have added this item to your cart!";
+					array_push($_SESSION["cart"],$item);
+				}
+
 			}
-			
 
 		}else{
 			$_SESSION["cart"] = array_diff($_SESSION["cart"],$item);
