@@ -1,3 +1,20 @@
+<?php
+	session_start();
+	if(isset($_SESSION["cart"])){
+		
+		$cart = $_SESSION["cart"];
+
+		$count = 0;
+		foreach($_SESSION["cart"] as $product){
+			$count+= count($product);
+		}
+
+		$count/=3;
+
+	}else{
+		$count = 0;
+	}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +63,6 @@
 			<input type="submit" name="contactSubmit" class="btn btn-primary">
 			<p style="font-family:var(--secondF);margin-top:10px;">We will get back to you in 48 hours</p>
 
-
 		</form>
 	</div>
 	
@@ -77,7 +93,11 @@
 							<a href="#" id="cartLink">
 								<i class="fas fa-shopping-cart"></i>
 							</a>
-							<span style="font-size:50%;border-radius:180px;border:hidden;">3</span>
+							<span style="font-size:50%;border-radius:180px;border:hidden;">
+								<?php
+									echo $count;
+								?>
+							</span>
 						</li>
 					</div>
 				</ul>
@@ -113,9 +133,25 @@
 					<th>Quanitity</th>
 					<th>Price</th>
 				</tr>
+				<?php
+					
+					include("php/connection.php");
+					$cart = $_SESSION["cart"];
+					$sql = "SELECT * FROM product WHERE product_name='$cart'";
+					$results = mysqli_query($con,$sql);
+					$row = mysqli_fetch_assoc($results);
+
+					for($x = 0;$x < $count; $x++){
+						echo "<tr>";
+						echo "<td><img src='pics/testL.jpg'></td>";
+						echo "<td>" . $_SESSION["cart"][$x][0] . "</td>";
+
+						echo "</td>";
+					}
+				?>
 				<tr>
 					<td><i class="fas fa-times"></i></td>
-					<td><img src="pics/testL.jpg"></td>
+					
 					<td>This is my first item</td>
 					<td>1</td>
 					<td>$1</td>

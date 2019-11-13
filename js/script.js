@@ -23,6 +23,7 @@ $(document).ready(function(){
 		});
 
 	});
+	
 	$(".inColorPicker").click(function(){
 		var val = $(this).css("background-color");
 		$(this).parent().parent().prev().css("background-color",val);
@@ -141,12 +142,15 @@ $(document).ready(function(){
 		var item_name = $(this).prev().prev().text();
 		var price = $(this).prev().text();
 		var add = true;
-		console.log(item_name);
+		var color = $(this).prev().prev().prev().children(":first").css("background-color");
+		console.log(color);
 		var cart_message = $(this).next();
+		
 		$(cart_message).load("php/cartHandler.php",{
 			item_name : item_name,
 			add : add,
-			price : price
+			price : price,
+			color : color
 		});
 	});
 	$("#adminLogout").click(function(){

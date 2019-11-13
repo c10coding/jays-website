@@ -11,6 +11,8 @@ session_start();
 
 		$count/=3;
 
+	}else{
+		$count = 0;
 	}
 	
 	function getBracelet($num, $what){
@@ -48,6 +50,8 @@ session_start();
 			echo $price;
 		}else if($what == "image"){
 			echo "<img src='pics/$availableImages[0]'>";
+		}else if($what == "colorButton"){
+			echoFirstColor($availableColors);
 		}
 
 	}
@@ -87,9 +91,15 @@ session_start();
 			echo $price;
 		}else if($what == "image"){
 			echo "<img src='pics/$availableImages[0]'>";
+		}else if($what == "colorButton"){
+			echoFirstColor($availableColors);
 		}
 	}
-
+	// This is so that the color button automatically matches the picture color straight off the loading of the index page. (Right now, it's white by default)
+	function echoFirstColor($arr){
+		$firstColor = $arr[0];
+		echo "<div class='colorButton' style='background-color:$firstColor'></div>";
+	}
 	function echoColors($arr){
 
 		for($i = 0;$i < count($arr);$i++){
@@ -238,7 +248,9 @@ session_start();
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
-					<div class="colorButton"></div>
+					<?php
+						getBracelet(1,"colorButton");
+					?>
 					<ul class="list-inline colorPicker">
 						<?php
 							getBracelet(1, "colors");
@@ -268,7 +280,9 @@ session_start();
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
-					<div class="colorButton"></div>
+					<?php
+						getBracelet(2,"colorButton");
+					?>
 					<ul class="list-inline colorPicker">
 						<?php
 							getBracelet(2, "colors");
@@ -299,7 +313,9 @@ session_start();
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
-					<div class="colorButton"></div>
+					<?php
+						getBracelet(3,"colorButton");
+					?>
 					<ul class="list-inline colorPicker">
 						<?php
 							getBracelet(3, "colors");
@@ -330,7 +346,9 @@ session_start();
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
-					<div class="colorButton"></div>
+					<?php
+						getBracelet(4,"colorButton");
+					?>
 					<ul class="list-inline colorPicker">
 						<?php
 							getBracelet(4, "colors");
@@ -368,7 +386,9 @@ session_start();
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
-					<div class="colorButton"></div>
+					<?php
+						getNecklace(1,"colorButton");
+					?>
 					<ul class="list-inline colorPicker">
 						<?php
 							getNecklace(1, "colors");
@@ -399,7 +419,9 @@ session_start();
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
-					<div class="colorButton"></div>
+					<?php
+						getNecklace(2,"colorButton");
+					?>
 					<ul class="list-inline colorPicker">
 						<?php
 							getNecklace(2, "colors");
@@ -432,7 +454,9 @@ session_start();
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
-					<div class="colorButton"></div>
+					<?php
+						getNecklace(3,"colorButton");
+					?>
 					<ul class="list-inline colorPicker">
 						<?php
 							getNecklace(3, "colors");
@@ -464,7 +488,9 @@ session_start();
 
 				<!-- THE THING THAT ALLOWS YOU TO CHANGE THE COLOR OF THE PICTURE -->
 				<div class="colors">
-					<div class="colorButton"></div>
+					<?php
+						getNecklace(4,"colorButton");
+					?>
 					<ul class="list-inline colorPicker">
 						<?php
 							getNecklace(4, "colors");

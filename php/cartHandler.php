@@ -9,11 +9,13 @@
 		$item_name = $_POST["item_name"];
 		$add = $_POST["add"];
 		$price = $_POST["price"];
+		$color = $_POST["color"];
 
 		$item = array(
 			"Item_Name"=>$item_name,
 			"Price"=>$price,
-			"Quantity"=>1
+			"Quantity"=>1,
+			"Color"=>$color
 		);
 
 		$count = 0;
