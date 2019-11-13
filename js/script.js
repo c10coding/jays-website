@@ -141,22 +141,77 @@ $(document).ready(function(){
 		//FIX THIS
 		var item_name = $(this).prev().prev().text();
 		var price = $(this).prev().text();
+
+		var arr = price.split(" ");
+		price = arr[0]; 
+
 		var add = true;
 		var color = $(this).prev().prev().prev().children(":first").css("background-color");
-		console.log(color);
+		var image = $(this).parent().children(":first").children(":first").attr("src");
+
+		var imgSrc = image.substring(5);
+
 		var cart_message = $(this).next();
-		
+		console.log(color);
 		$(cart_message).load("php/cartHandler.php",{
 			item_name : item_name,
 			add : add,
 			price : price,
-			color : color
+			color : color,
+			imgSrc : imgSrc
 		});
 	});
 	$("#adminLogout").click(function(){
 		var logout = true;
 		$("#temp").load("adminHandlers/logout.php", {
 			logout : logout
+		});
+	});
+	$(".cartQuantity").blur(function(){
+		var value = $(this).val();
+		var item = $(this).parent().prev().text();
+		var arr = item.trim().split(" ");
+		var pricePosition = $(this).parent().next();
+		item = "";
+
+		for(var x = 0;x < arr.length-1; x++){
+			item += arr[x];
+			item += " ";
+		} 
+		
+		$.ajax({
+	  		url: "php/cartHandler.php",
+	  		type: "POST",
+	  		data:{"value":value,"cartItemName":item.trim()}
+		}).done(function(data) {
+			var temp = data.trim();
+			console.log(temp);
+			$(pricePosition).text(temp + " USD");
+		});
+	});
+	$(".removeItem").click(function(){
+		var remove = $(this).parent().next().next().text();
+		var color;
+
+		var arr = remove.trim().split(" ");
+		remove = "";
+		for(var x = 0;x < arr.length-1;x++){
+			remove += arr[x];
+			remove += " ";
+		}
+		color = arr[arr.length-1];
+		color = color.substring(1, color.length-1);
+		
+		
+		$.ajax({
+	  		url: "php/cartHandler.php",
+	  		type: "POST",
+	  		data:{"color":color.trim(),"remove":remove.trim()}
+		}).done(function(data) {
+			var removed = data;
+			if(removed = true){
+				location.reload();
+			}
 		});
 	});
 });

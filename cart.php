@@ -9,7 +9,7 @@
 			$count+= count($product);
 		}
 
-		$count/=3;
+		$count/=5;
 
 	}else{
 		$count = 0;
@@ -23,8 +23,7 @@
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	<!-- JQUERY -->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<!-- JS -->
-	<script type="text/javascript" src="js/script.js"></script>
+	
 	<!-- INTERNAL STYLING -->
 	<style type="text/css"></style>
 	<!-- STYLESHEET -->
@@ -135,25 +134,30 @@
 				</tr>
 				<?php
 					
-					include("php/connection.php");
-					$cart = $_SESSION["cart"];
-					$sql = "SELECT * FROM product WHERE product_name='$cart'";
-					$results = mysqli_query($con,$sql);
-					$row = mysqli_fetch_assoc($results);
-
 					for($x = 0;$x < $count; $x++){
-						echo "<tr>";
-						echo "<td><img src='pics/testL.jpg'></td>";
-						echo "<td>" . $_SESSION["cart"][$x][0] . "</td>";
 
-						echo "</td>";
+						$img = $_SESSION["cart"][$x]["Image"];
+						$item = $_SESSION["cart"][$x]["Item_Name"];
+						$quanitity = $_SESSION["cart"][$x]["Quantity"];
+						$price = $_SESSION["cart"][$x]["Price"];
+						$color = $_SESSION["cart"][$x]["Color"];
+
+						echo "<tr>";
+						echo '<td><i class="fas fa-times removeItem"></i></td>';
+						echo "<td><img src='pics/$img'></td>";
+						echo "<td>" . $item . " ($color)" . "</td>";
+						echo "<td>" . "<input type='number' step='1' value='$quanitity' class='cartQuantity'>" . "</td>";
+						echo "<td>" . $price * $quanitity . " USD" . "</td>";
+						echo "</tr>";
+
 					}
 				?>
+				<!--
 				<tr>
 					<td><i class="fas fa-times"></i></td>
 					
 					<td>This is my first item</td>
-					<td>1</td>
+					<td><input type="text" value="1"></td>
 					<td>$1</td>
 				</tr>
 				<tr>
@@ -169,7 +173,7 @@
 					<td>Item1</td>
 					<td>3</td>
 					<td>$50</td>
-				</tr>
+				</tr>-->
 			</table>
 		</div>
 
@@ -247,6 +251,7 @@
 		<div class="col-lg-12" id="myCredit">
 			<p>Website made by <a href="https://caleb-development.000webhostapp.com">Caleb Owens</a></p>
 		</div>
-
+<!-- JS -->
+	<script type="text/javascript" src="js/script.js"></script>
 </body>
 </html>

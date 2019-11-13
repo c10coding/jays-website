@@ -430,9 +430,11 @@ footer img{
 	width:100px;
 	height:100px;
 }
-#cartInfo tr td:nth-child(4){
-	font-size:150%;
+#cartInfo tr td:nth-child(4) input{
+	font-size:120%;
 	color:var(--red);
+	text-align:center;
+	width:20%;
 }
 #discountGroup{
 	width:20%;
@@ -515,6 +517,15 @@ footer img{
 	transition: .5s;
 	cursor: pointer;
 	opacity: .8;
+}
+.removeItem{
+	transition: .5s;
+}
+.removeItem:hover{
+	transition: .5s;
+	cursor: pointer;
+	opacity: .8;
+	font-size: 120%;
 }
 @media only screen and (max-width: 650px) {
 	#shopAndBrowse{
