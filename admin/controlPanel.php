@@ -62,6 +62,9 @@
 			<a href="allItems.php" class="text-primary">See all items</a>
 		</li>
 		<li class="list-inline-item">
+			<a href="discountCodes.php" class="text-primary">Discount codes</a>
+		</li>
+		<li class="list-inline-item">
 			<a href="adminHandlers/logout.php?logout=true" class="text-primary" id="adminLogout" name="logout">Logout</a>
 		</li>
 	</ul>

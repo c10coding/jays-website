@@ -209,10 +209,44 @@ $(document).ready(function(){
 	  		data:{"color":color.trim(),"remove":remove.trim()}
 		}).done(function(data) {
 			var removed = data;
-			if(removed = true){
+			if(removed == true){
 				location.reload();
 			}
 		});
 	});
+
+	$("#discountAdd").click(function(){
+		var discountCode = $("#discountInput").val();
+		var discountPercentage = $("#discountPercentage").val();
+		discountCode = discountCode.toUpperCase();
+		$.ajax({
+	  		url: "adminHandlers/addDiscountCode.php",
+	  		type: "POST",
+	  		data:{"discountCode":discountCode.trim(),"discountPercentage":discountPercentage}
+		}).done(function(data) {
+			var bool = data;
+			if(bool == true){
+				location.reload();
+			}
+		});
+
+	});
+
+	$(".removeCode").click(function(){
+		var code = $(this).parent().next().text();
+		
+		$.ajax({
+	  		url: "adminHandlers/removeDiscountCode.php",
+	  		type: "POST",
+	  		data:{"code":code.trim()}
+		}).done(function(data) {
+			var bool = data;
+			if(bool == true){
+				location.reload();
+			}
+		});
+
+	});
+
 });
 

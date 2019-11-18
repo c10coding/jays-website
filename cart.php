@@ -133,7 +133,7 @@
 					<th>Price</th>
 				</tr>
 				<?php
-					
+					$totalPrice = 0;
 					for($x = 0;$x < $count; $x++){
 
 						$img = $_SESSION["cart"][$x]["Image"];
@@ -141,6 +141,8 @@
 						$quanitity = $_SESSION["cart"][$x]["Quantity"];
 						$price = $_SESSION["cart"][$x]["Price"];
 						$color = $_SESSION["cart"][$x]["Color"];
+						
+						$totalPrice += $price;
 
 						echo "<tr>";
 						echo '<td><i class="fas fa-times removeItem"></i></td>';
@@ -184,8 +186,13 @@
 				<button class="btn btn-outline-secondary" type="button">Try code</button>
 			</div>
 		</div>
-
+		
 		<button id="continueToCheckout" onclick="window.location.href = 'checkout.php'">Continue to checkout</button>
+		<h2 id="cartPrice">
+			<?php
+				echo "Total price: " . "<span style='color:black'>" . $totalPrice  . " USD" . "</span>";
+			?>
+		</h2>
 		<!-- OTHER THINGS YOU MAY LIKE -->
 		<h2 id="otherThingsHeader">Here's some other things you may like!</h2>
 		<div class="row" id="otherThings">
