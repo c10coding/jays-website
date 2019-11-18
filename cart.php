@@ -14,6 +14,16 @@
 	}else{
 		$count = 0;
 	}
+	if($_SESSION["NoChange"] == false){
+		$_SESSION["totalPrice"] = 0;
+		for($n = 0; $n < $count;$n++){
+			$currentPrice = $_SESSION["cart"][$n]["Price"];
+			$_SESSION["totalPrice"] += $currentPrice;
+		}
+		echo $_SESSION["totalPrice"];
+	}
+	
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -141,7 +151,7 @@
 						$quanitity = $_SESSION["cart"][$x]["Quantity"];
 						$price = $_SESSION["cart"][$x]["Price"];
 						$color = $_SESSION["cart"][$x]["Color"];
-						
+
 						$totalPrice += $price;
 
 						echo "<tr>";
@@ -180,10 +190,11 @@
 		</div>
 
 		<h2 id="discountText">Discount code</h2>
+		<p id="tryDiscountCodeMessage" class="text-success" style="margin-left:12%;font-size:90%;padding-top:10px;padding-bottom:5px"></p>
 		<div class="input-group mb-3" id="discountGroup">
-			<input type="text" class="form-control" placeholder="Put discount code here..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+			<input type="text" class="form-control" placeholder="Put discount code here..." aria-label="Recipient's username" aria-describedby="basic-addon2" id="inputDiscountCode">
 			<div class="input-group-append">
-				<button class="btn btn-outline-secondary" type="button">Try code</button>
+				<button class="btn btn-outline-secondary" type="button" id="tryDiscountCode">Try code</button>
 			</div>
 		</div>
 		

@@ -248,5 +248,13 @@ $(document).ready(function(){
 
 	});
 
+	$("#tryDiscountCode").click(function(){
+		var code = $("#inputDiscountCode").val();
+		console.log(code);
+		$("#tryDiscountCodeMessage").load("php/tryDiscountCode.php",{
+			code : code
+		});
+	});
+
 });
 

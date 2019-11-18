@@ -5,7 +5,14 @@
 	//Makes an array within a sesssion
 	if(!isset($_SESSION["cart"])){
 		$_SESSION["cart"] = array();
+		if(!isset($_SESSION["totalPrice"])){
+			$_SESSION["totalPrice"];
+		}
 	}else if(!isset($_POST["value"]) && !isset($_POST["remove"])){
+		
+		if(!isset($_SESSION["totalPrice"])){
+			$_SESSION["totalPrice"] = 0;
+		}
 
 		$item_name = $_POST["item_name"];
 		$add = $_POST["add"];
@@ -21,6 +28,11 @@
 		}
 
 		$count/=5;
+
+		for($n = 0; $n < $count;$n++){
+			$currentPrice = $_SESSION["cart"][$n]["Price"];
+			$_SESSION["totalPrice"] += $currentPrice;
+		}
 
 		//TURNS RGB TO COLOR
 		//[Color] => rgb(255, 255, 0)
@@ -126,7 +138,6 @@
 			$removedItem = $_POST["remove"];
 
 			$color = $_POST["color"];
-
 
 			$count = 0;
 		
