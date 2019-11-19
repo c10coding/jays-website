@@ -1,20 +1,7 @@
 <?php
 	session_start();
-	if(isset($_SESSION["cart"])){
-		
-		$cart = $_SESSION["cart"];
-
-		$count = 0;
-		foreach($_SESSION["cart"] as $product){
-			$count+= count($product);
-		}
-
-		$count/=5;
-
-	}else{
-		$count = 0;
-	}
-	
+	include("php/countCart.php");
+	echo $_SESSION["totalPrice"];
 	function getBracelet($num, $what){
 
 		include("php/connection.php");

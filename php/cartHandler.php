@@ -6,7 +6,7 @@
 	if(!isset($_SESSION["cart"])){
 		$_SESSION["cart"] = array();
 		if(!isset($_SESSION["totalPrice"])){
-			$_SESSION["totalPrice"];
+			$_SESSION["totalPrice"] = 0;
 		}
 	}else if(!isset($_POST["value"]) && !isset($_POST["remove"])){
 		
@@ -121,10 +121,12 @@
 		}
 
 	}else{	
+		//If the quantity is changed on cart.php
 		if(isset($_POST["value"])){
 			
 			$quantity = $_POST["value"];
 			$cartItemName = $_POST["cartItemName"];
+			$color = $_POST["color"];
 			//GETTING THE PRICE OF THE ITEM
 			include("connection.php");
 			$sql = "SELECT * FROM product WHERE product_name='$cartItemName'";
@@ -133,6 +135,24 @@
 			$price = $row["price"];
 			
 			echo $quantity * $price;
+
+			//Changes the actual quanitity in the session of cart
+			include("countCart.php");
+			for($x = 0;$x < $count;$x++){
+				$currentItem = $_SESSION["cart"][$x]["Item_Name"];
+				$currentColor = $_SESSION["cart"][$x]["Color"];
+
+				$currentItem = trim($currentItem);
+				$color = trim($color);
+
+				if($currentItem == $cartItemName && $color == $currentColor){
+					$_SESSION["cart"][$x]["Quantity"] = $quantity;
+					echo $_SESSION["cart"][$x]["Quantity"];
+					break;
+				}
+
+			}
+
 		}else if(isset($_POST["remove"])){
 			
 			$removedItem = $_POST["remove"];

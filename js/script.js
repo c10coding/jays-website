@@ -172,6 +172,10 @@ $(document).ready(function(){
 		var item = $(this).parent().prev().text();
 		var arr = item.trim().split(" ");
 		var pricePosition = $(this).parent().next();
+		var color = arr[arr.length-1];
+		//Gets the color without the parentheses
+		color = color.substring(1);
+		color = color.substring(0,color.length-1);
 		item = "";
 
 		for(var x = 0;x < arr.length-1; x++){
@@ -182,7 +186,7 @@ $(document).ready(function(){
 		$.ajax({
 	  		url: "php/cartHandler.php",
 	  		type: "POST",
-	  		data:{"value":value,"cartItemName":item.trim()}
+	  		data:{"value":value,"cartItemName":item.trim(),"color":color.trim()}
 		}).done(function(data) {
 			var temp = data.trim();
 			console.log(temp);
@@ -250,7 +254,6 @@ $(document).ready(function(){
 
 	$("#tryDiscountCode").click(function(){
 		var code = $("#inputDiscountCode").val();
-		console.log(code);
 		$("#tryDiscountCodeMessage").load("php/tryDiscountCode.php",{
 			code : code
 		});

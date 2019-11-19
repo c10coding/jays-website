@@ -1,29 +1,10 @@
 <?php
 	session_start();
-	if(isset($_SESSION["cart"])){
-		
-		$cart = $_SESSION["cart"];
-
-		$count = 0;
-		foreach($_SESSION["cart"] as $product){
-			$count+= count($product);
-		}
-
-		$count/=5;
-
-	}else{
-		$count = 0;
-	}
-	if($_SESSION["NoChange"] == false){
-		$_SESSION["totalPrice"] = 0;
-		for($n = 0; $n < $count;$n++){
-			$currentPrice = $_SESSION["cart"][$n]["Price"];
-			$_SESSION["totalPrice"] += $currentPrice;
-		}
-		echo $_SESSION["totalPrice"];
-	}
+	include("php/totalPriceOfCart.php");
 	
-
+	//Makes sure that floor is a whole number
+	$count = floor($count);
+	
 ?>
 <!DOCTYPE html>
 <html>
@@ -144,22 +125,16 @@
 				</tr>
 				<?php
 					$totalPrice = 0;
+					include("php/countCart.php");
+					include("php/getCartInfo.php");
+					echo $_SESSION["cart"][0]["Quantity"];
 					for($x = 0;$x < $count; $x++){
-
-						$img = $_SESSION["cart"][$x]["Image"];
-						$item = $_SESSION["cart"][$x]["Item_Name"];
-						$quanitity = $_SESSION["cart"][$x]["Quantity"];
-						$price = $_SESSION["cart"][$x]["Price"];
-						$color = $_SESSION["cart"][$x]["Color"];
-
-						$totalPrice += $price;
-
 						echo "<tr>";
 						echo '<td><i class="fas fa-times removeItem"></i></td>';
 						echo "<td><img src='pics/$img'></td>";
 						echo "<td>" . $item . " ($color)" . "</td>";
-						echo "<td>" . "<input type='number' step='1' value='$quanitity' class='cartQuantity'>" . "</td>";
-						echo "<td>" . $price * $quanitity . " USD" . "</td>";
+						echo "<td>" . "<input type='number' value='$quantity' class='cartQuantity'>" . "</td>";
+						echo "<td>" . $price * $quantity . " USD" . "</td>";
 						echo "</tr>";
 
 					}
@@ -201,7 +176,7 @@
 		<button id="continueToCheckout" onclick="window.location.href = 'checkout.php'">Continue to checkout</button>
 		<h2 id="cartPrice">
 			<?php
-				echo "Total price: " . "<span style='color:black'>" . $totalPrice  . " USD" . "</span>";
+				echo "Total price: " . "<span style='color:black'>" . $_SESSION["totalPrice"]  . " USD" . "</span>";
 			?>
 		</h2>
 		<!-- OTHER THINGS YOU MAY LIKE -->
