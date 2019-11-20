@@ -1,3 +1,7 @@
+<?php 
+	session_start();
+	echo $_SESSION["totalPrice"];
+ ?>
 <!DOCTYPE html>
 <html>
 <head>

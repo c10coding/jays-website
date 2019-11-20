@@ -294,17 +294,26 @@
 			</div>
 		</div>-->
 		
-		<button id="continueToCheckout" onclick="window.location.href = 'checkout.php'">Continue to checkout</button>
+		<?php
+			if ($count == 0) {
+				echo '<button id="continueToCheckout" onclick="window.location.href = \'index.php\'">Go add to your cart!</button>';
+
+			}else{
+				echo '<button id="continueToCheckout" onclick="window.location.href = \'checkout.php\'">Continue to checkout</button>';
+			}
+		?>
+
+		
 		<h2 id="cartPrice">
 			<?php
+			if($totalPrice == 0){
+				echo "Total price: " . "<span style='color:black'>" . "0" . " USD" . "</span>";
+			}else{
 				echo "Total price: " . "<span style='color:black'>" . $totalPrice  . " USD" . "</span>";
+			}
 			?>
 		</h2>
-		<?php
 
-
-
-		?>
 			
 		<!-- OTHER THINGS YOU MAY LIKE -->
 		<h2 id="otherThingsHeader">Here's some other things you may like!</h2>
