@@ -17,6 +17,7 @@
 		$name = $row["product_name"];
 		$price = $row["price"];
 		
+		//Gets the images that are actually in the databse and aren't null; also relates them to the corresponding color
 		$colors = array("black","white","red","orange","yellow","green","purple","pink","gray","brown");
 		
 		for($x = 0;$x < 10;$x++){
@@ -87,6 +88,7 @@
 		$firstColor = $arr[0];
 		echo "<div class='colorButton' style='background-color:$firstColor'></div>";
 	}
+	
 	function echoColors($arr){
 
 		for($i = 0;$i < count($arr);$i++){

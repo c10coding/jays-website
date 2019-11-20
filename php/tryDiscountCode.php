@@ -1,8 +1,10 @@
 <?php 
 
+	// This is the attempted system of applying discount codes. This system was discontinued on 11/20/19. Reason - Jay felt like this could come later
+
 	include("connection.php");
 	include("countCart.php");
-	include("totalPriceOfCart.php");
+	
 
 	session_start();
 	$discountCode = $_POST["code"];
@@ -35,12 +37,12 @@
 		}
 
 		if(!count($_SESSION["recentCodes"]) == 0){
+
 			foreach($_SESSION["recentCodes"] as $code){
 				
 				if($discountCode == $code){
 					die("You've already used this discount code!");
 				}
-
 			}
 
 			//It is a valid discount code
@@ -49,7 +51,11 @@
 			$cutOff = $totalPrice * $percentage;
 			$totalPrice = $totalPrice - $cutOff;
 			$_SESSION["totalPrice"] = $totalPrice;
+
 			$_SESSION["discountApplied"] = true;
+
+			include("totalPriceOfCart.php");
+
 			echo "Discount code applied. You have saved " . $cutOff . " USD. To see your new price, please refresh the page!";
 			array_push($_SESSION["recentCodes"], $discountCode);
 
@@ -62,6 +68,7 @@
 			$_SESSION["totalPrice"] = $totalPrice;
 			echo "Discount code applied. You have saved " . $cutOff . " USD. To see your new price, please refresh the page!";
 			array_push($_SESSION["recentCodes"], $discountCode);
+			unset($_SESSION["quantityChanged"]);
 		}
 		
 		

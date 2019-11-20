@@ -148,6 +148,7 @@
 				if($currentItem == $cartItemName && $color == $currentColor){
 					$_SESSION["cart"][$x]["Quantity"] = $quantity;
 					echo $_SESSION["cart"][$x]["Quantity"];
+					$_SESSION["quantityChanged"] = true;
 					break;
 				}
 

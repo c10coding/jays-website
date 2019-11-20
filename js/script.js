@@ -1,6 +1,7 @@
 
 $(document).ready(function(){
 	$(".colorButton").click(function(){
+		console.log("te");
 		var val = $(this).next().css("display");
 
 		if(val == "none"){

@@ -8,7 +8,7 @@
 			$count+= count($product);
 		}
 
-		$count/=6;
+		$count/=5;
 
 	}else{
 		$count = 0;

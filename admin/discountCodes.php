@@ -59,6 +59,7 @@
 </head>
 <body>
 	<div class="container">
+		<h4>This page has been kept for later. It doesn't necessarily do anything. All it does it input codes into the database, but you can't use the discount code.</h4>
 		<h2 class="text-center mb-3 mt-3" style="font-family:var(--secondF)">Discount codes</h2>
 		<div class="text-center">
 			<a href="controlPanel.php" class="text-center mt-3 mb-3">Go back</a>
