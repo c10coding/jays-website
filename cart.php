@@ -201,7 +201,7 @@
 			<div class="col-md-12">
 				<ul class="list-inline">
 					<li class="list-inline-item">
-						<a href="../" id="homeLink" style="color:var(--blue)">
+						<a href="index.php" id="homeLink" style="color:var(--blue)">
 							<i class="fas fa-home"></i>
 						</a>
 					</li>
@@ -246,9 +246,26 @@
 				</a>
 			</ul>
 		</div>
+
+		<!-- BROWSE TAB -->
+		<div id="browseTab">
+
+			<i class="fas fa-times" id="browseClose"></i>
+
+			<ul class="list-inline">
+				<li class="list-inline-item">	
+					<a href="types/bracelets.php">Bracelets</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="types/necklaces.php">Necklaces</a>
+				</li>
+			</ul>
+
+		</div>
+
 		<br><br><br><br>
 		<h1 id="cartHeader">CART</h1>
-		<a href="#" id="continueShop">
+		<a href="index.php" id="continueShop">
 			<i class="fas fa-arrow-circle-left" ></i><span>Continue shopping</span>
 		</a>
 
@@ -465,19 +482,19 @@
 					<h2>MORE</h2>
 					<ul class="list-unstyled" id="footerUl">
 						<li>
-							<a href="">Bracelets</a>
+							<a href="types/bracelets.php">Bracelets</a>
 						</li>
 						<li>
-							<a href="#">Cart</a>
+							<a href="cart.php">Cart</a>
 						</li>
 						<li>
-							<a href="#">Necklaces</a>
+							<a href="types/necklaces.php">Necklaces</a>
 						</li>
 						<li>
 							<a href="#" id="footerContact">Contact us</a>
 						</li>
 						<li>
-							<a href="#">Browse</a>
+							<a href="#" id="footerBrowseLink">Browse</a>
 						</li>
 					</ul>
 					

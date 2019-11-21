@@ -40,7 +40,7 @@ $(document).ready(function(){
 		}).done(function(data) {
 			var temp = data.trim();
 			var img = colorPicker.parent().parent().parent().prev().children();
-			var path = "pics/" + temp;
+			var path = "../pics/" + temp;
 			$(img).attr("src", path);
 		});
 
@@ -139,10 +139,18 @@ $(document).ready(function(){
 	});
 
 	$(".add_to_cart").click(function(){
+		//Allows me to differentiate between two pages. I did this so that i know when to set different substring values for different variables
+		var url = window.location.pathname;
+		url = url.substring(11);
+
 		//FIX THIS
 		var item_name = $(this).prev().prev().text();
 		var price = $(this).prev().text();
-
+		if(!item_name){
+			return;
+		}
+		
+		console.log(url);
 		var arr = price.split(" ");
 		price = arr[0]; 
 
@@ -150,10 +158,15 @@ $(document).ready(function(){
 		var color = $(this).prev().prev().prev().children(":first").css("background-color");
 		var image = $(this).parent().children(":first").children(":first").attr("src");
 
-		var imgSrc = image.substring(5);
+		var imgSrc;
+
+		if(url == "bracelets.php" || url == "necklaces.php"){
+			imgSrc = image.substring(7);
+		}else{
+			imgSrc = image.substring(5);
+		}
 
 		var cart_message = $(this).next();
-		console.log(color);
 		$(cart_message).load("php/cartHandler.php",{
 			item_name : item_name,
 			add : add,
@@ -258,6 +271,20 @@ $(document).ready(function(){
 		$("#tryDiscountCodeMessage").load("php/tryDiscountCode.php",{
 			code : code
 		});
+	});
+
+	$("#browseLink, #footerBrowseLink").click(function(){
+		console.log("ye");
+		var val = $("#browseTab").css("top");
+		if (val == "-50px") {
+			$("#browseTab").animate({top: "77px"});
+		}else{
+			$("#browseTab").animate({top:"-50px"});
+		}
+	});
+
+	$("#browseClose").click(function(){
+		$("#browseTab").animate({top:"-50px"});
 	});
 
 });

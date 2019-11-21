@@ -48,3 +48,5 @@ $_SESSION["cart"] = array();
 // Redirect to success
 	// tid = Transaction id
 header("Location: success.php?tid=".$charge->id."&product=".$charge->description);
+
+// The next step is to make it mail the user about the order

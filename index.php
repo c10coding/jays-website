@@ -1,7 +1,6 @@
 <?php
 	session_start();
 	include("php/countCart.php");
-	echo $_SESSION["totalPrice"];
 	function getBracelet($num, $what){
 
 		include("php/connection.php");
@@ -129,11 +128,15 @@
 	<meta charset="utf-8">
 </head>
 <body>
+
 	<div class="centered"></div>
+
 	<!-- CONTACT MODAL -->
 	<div id="contactModal" class="centered">
+
 		<i class="fas fa-times" id="contactClose"></i>
 		<h2>Contact us</h2>
+
 		<form action="php/contactHandle.php" method="POST" id="contactForm">
 			<div class="contactInputWrap">
 				<label>Email</label>
@@ -156,18 +159,17 @@
 			<input type="submit" name="contactSubmit" class="btn btn-primary">
 			<p style="font-family:var(--secondF);margin-top:10px;">We will get back to you in 48 hours</p>
 
-
 		</form>
+
 	</div>
 	
-
 	<div id="opacity" style="transition:.5s;">
 		<!-- DESKTOP NAVIGATION -->
 		<nav>
 			<div class="col-md-12">
 				<ul class="list-inline">
 					<li class="list-inline-item">
-						<a href="#" id="homeLink" style="color:var(--blue)">
+						<a href="index.php" id="homeLink" style="color:var(--blue)">
 							<i class="fas fa-home"></i>
 						</a>
 					</li>
@@ -212,11 +214,25 @@
 				</a>
 			</ul>
 		</div>
-		<br><br><br><br>
+
+		<!-- BROWSE TAB -->
+		<div id="browseTab">
+			<i class="fas fa-times" id="browseClose"></i>
+			<ul class="list-inline">
+				<li class="list-inline-item">	
+					<a href="types/bracelets.php">Bracelets</a>
+				</li>
+				<li class="list-inline-item">
+					<a href="types/necklaces.php">Necklaces</a>
+				</li>
+			</ul>
+		</div>
+
+		<br><br>
 		<!-- SLIDESHOW -->
 		<div id="slideshow">
 			<h3>Like what you see? Let's do business!</h3>
-			<button>Shop for more!</button>
+			<button onclick="window.location.href='types/bracelets.php'">Shop for more!</button>
 			<i class="fas fa-arrow-alt-circle-right" id="slideRightArrow"></i>
 			<i class="fas fa-arrow-alt-circle-left" id="slideLeftArrow"></i>
 			<img src="pics/testL.jpg" id="slideShowImg">
@@ -517,19 +533,19 @@
 					<h2>MORE</h2>
 					<ul class="list-unstyled" id="footerUl">
 						<li>
-							<a href="">Bracelets</a>
+							<a href="types/bracelets.php">Bracelets</a>
 						</li>
 						<li>
-							<a href="#">Cart</a>
+							<a href="cart.php">Cart</a>
 						</li>
 						<li>
-							<a href="#">Necklaces</a>
+							<a href="types/necklaces.php">Necklaces</a>
 						</li>
 						<li>
 							<a href="#" id="footerContact">Contact us</a>
 						</li>
 						<li>
-							<a href="#">Browse</a>
+							<a href="#" id="browseLink">Browse</a>
 						</li>
 					</ul>
 					
